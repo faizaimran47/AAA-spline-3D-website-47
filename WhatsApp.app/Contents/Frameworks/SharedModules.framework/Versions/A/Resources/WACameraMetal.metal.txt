@@ -1,0 +1,50 @@
+//
+//  WACameraMetal.metal
+//  Core
+//
+//  Created by Luchuan Guo on 4/10/19.
+//  Copyright © 2019 WhatsApp. All rights reserved.
+//
+
+#include <metal_stdlib>
+using namespace metal;
+
+typedef struct {
+    float4 renderedCoordinate [[position]];
+    float2 textureCoordinate;
+} TextureMappingVertex;
+
+vertex TextureMappingVertex cameraVertex(uint vid [[ vertex_id ]],
+                                         const device packed_float4 *renderedCoordinates [[ buffer(0) ]],
+                                         const device packed_float2 *textureCoordinates [[ buffer(1) ]]) {
+    TextureMappingVertex outVertex;
+    outVertex.renderedCoordinate = renderedCoordinates[vid];
+    outVertex.textureCoordinate = textureCoordinates[vid];
+
+    return outVertex;
+}
+
+fragment float4
+cameraFragment(TextureMappingVertex in [[stage_in]],
+                          texture2d<float> textureY [[ texture(0) ]],
+                          texture2d<float> textureUV [[ texture(1) ]]) {
+    constexpr sampler textureSampler(mag_filter::linear,
+                                      min_filter::linear);
+
+    // The YUV -> RGBA algorithm is copied from VOIP. (See I420 part of shaders.metal in Voip folder. (D15036605))
+
+    // 1.164 is the adjustment of Y. Actually, all the 'y' below is not the actual Y, it is Yf(adjusted Y).
+    // Because you can find it in FourCC.org, you will find we use an adjusted 'y'(Yf = 1.164 * Y) in the YUV -> RGBA
+    // algorithm.
+    const float y = float(textureY.sample(textureSampler, in.textureCoordinate).r * 1.164);
+    const float u = float(textureUV.sample(textureSampler, in.textureCoordinate).r);
+    const float v = float(textureUV.sample(textureSampler, in.textureCoordinate).g);
+
+    // TODO: (luchuan) Maybe we can change float4 to half4 to save some memory usage for GPU.
+    return float4(clamp(float4(y + 1.59375 * v - 0.871078431372549,
+                               y - 0.390625 * u - v * 0.8125 + 0.532843137254902,
+                               y + 2.0 * u - 1.075,
+                               1.0),
+                        0.0, 1.0));
+
+}

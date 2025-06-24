@@ -1,0 +1,78 @@
+{
+  "layout": {
+    "bloks_payload": {
+      "data": [],
+      "error_attribution": {
+        "logging_id": "{\"callsite\":\"{\\\"product\\\":\\\"bloks_entrypoints_infra\\\",\\\"feature\\\":\\\"screen_query_root_template\\\",\\\"oncall\\\":\\\"bloks_www\\\"}\",\"push_phase\":\"intern\",\"version\":1,\"request_id\":\"AwI1GGG9gagwpT6H8Rt3sHZ\",\"www_revision\":1015794800}",
+        "source_map_id": "HzQiJmDw"
+      },
+      "tree": {
+        "\u3408": {
+          " ": [
+            {
+              "\u3408": {
+                " ": [
+                  {
+                    "\u3408": {
+                      ",": "center",
+                      " ": [
+                        {
+                          "\u3562": {
+                            "\u0084": {
+                              "\u3438": {
+                                "D": "32dp",
+                                "*": "32dp",
+                                "#": "center"
+                              }
+                            }
+                          }
+                        }
+                      ],
+                      "!": "bkscreen_roottemplate_loadingflexbox:0",
+                      "\u0084": {
+                        "\u3438": {
+                          "D": "100%",
+                          "*": "100%"
+                        }
+                      }
+                    }
+                  }
+                ],
+                "!": "i46n9p:1"
+              }
+            }
+          ],
+          "!": "i46n9p:2",
+          "\u0085": [
+            {
+              "\u3fb6": {
+                "#": " (bk.action.core.Apply, (bk.action.core.FuncConst, (bk.action.core.If, (bk.action.f32.Eq, \"failed\", (bk.action.core.GetArg, 1)), (bk.action.core.Apply, (bk.action.core.FuncConst, (bk.action.screen.callback.DidFetchSucceed, false)), (bk.action.core.GetArg, 0)), (bk.action.core.Apply, (bk.action.core.FuncConst, (bk.action.screen.callback.DidFetchSucceed, true)), (bk.action.core.GetArg, 0)))), (bk.action.core.GetArg, 0), (bk.action.core.GetArg, 2))",
+                "\u0087": [
+                  ")",
+                  " (bk.action.core.If, (bk.action.f32.Eq, (bk.action.bloks.GetVariable2, \"query_info_12tuvy4x0g\"), null), null, (bk.action.map.Get, (bk.action.core.Coalesce, (bk.action.bloks.GetVariable2, \"query_info_12tuvy4x0g\"), (bk.action.mins.Raise, \"asNonnull got null\")), \"resolution_type\"))"
+                ]
+              }
+            },
+            {
+              "\u365a": {
+                ")": " (bk.action.bloks.FetchAsyncComponents, (bk.action.bloks.GetParameter, \"__infra__app_id\"), (bk.action.map.Make, (bk.action.array.Make, \"__infra__container_config_id\"), (bk.action.array.Make, (bk.action.bloks.GetParameter, \"__infra__container_config_id\"))), (bk.action.bloks.GetParameter, \"__infra__cache_ttl\"), null)"
+              }
+            }
+          ]
+        }
+      },
+      "component_queries": [
+        {
+          "id": "12tuvy4x0g",
+          "targets": {
+            "genScreenContent": "i46n9p:1"
+          },
+          "app_id_expr": "(bk.action.bloks.GetParameter, \"__infra__app_id\")",
+          "params": "(bk.action.map.Make, (bk.action.array.Make, \"__infra__container_config_id\"), (bk.action.array.Make, (bk.action.bloks.GetParameter, \"__infra__container_config_id\")))",
+          "cache_ttl_expr": "(bk.action.bloks.GetParameter, \"__infra__cache_ttl\")",
+          "is_scoped": false
+        }
+      ]
+    }
+  }
+}

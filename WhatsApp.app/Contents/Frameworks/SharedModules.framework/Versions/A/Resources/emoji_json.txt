@@ -1,0 +1,30 @@
+{
+  "l1": {
+    "🌸": [  ],
+    "👓": [  ],
+    "👼": [  ],
+    "🕶": [  ],
+    "🆎": [ "AB" ],
+    "💙": [ "blue heart" ],
+    "🔍": [ "glass", "magnifying glass" ],
+    "🔎": [ "glass", "magnifying glass" ],
+    "💗": [ "pink heart" ],
+    "🌹": [ "rose", "red flower" ],
+    "🌻": [ "sun flower" ],
+    "🎩": [ "top hat", "Abraham Lincoln" ],
+    "💛": [ "yellow heart" ],
+    "🇰🇵": [  ],
+    "😁": [ "xyz" ],
+    "🍎": [ "apple" ],
+    "👋": [ "Hi" ],
+    "😭": [ "Sad", "Cuppy" ],
+    "😍": [ "Love", "Cuppy" ],
+    "👍": [ "thumbs up" ],
+    "😂": [ "happy" ],
+  },
+  "l2": {
+    "🤷‍♀️": [ "x" ],
+    "🍎": [ "apple" ]
+  }
+}
+
